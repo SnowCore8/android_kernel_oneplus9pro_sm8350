@@ -41,7 +41,8 @@ jobs:
 
     - name: Build Kernel
       run: |
-       export PATH=$(pwd)/clang/clang-r383902b/bin/:$PATH
+       ls -l
+       export PATH=$(pwd)/clang-r383902b/bin/:$PATH
        export ARCH=arm64
        export SUBARCH=arm64
        make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC=clang
