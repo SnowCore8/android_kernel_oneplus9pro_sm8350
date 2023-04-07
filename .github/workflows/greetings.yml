@@ -30,7 +30,8 @@ jobs:
         sudo apt install gcc-aarch64-linux-gnu -y
         sudo apt install gcc-arm-linux-gnueabi -y
         sudo apt install binutils make python3 libssl-dev build-essential bc  bison flex unzip libssl-dev ca-certificates xz-utils mkbootimg cpio device-tree-compiler git git-lfs -y
-        git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b android-vts-11.0_r8
+        mkdir clang11
+        git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 --depth=1 -b android-vts-11.0_r8  clang11
         git clone https://github.com/lateautumn233/AnyKernel3 -b master --depth=1
         rm -rf AnyKernel3/.git
     
@@ -42,7 +43,7 @@ jobs:
     - name: Build Kernel
       run: |
        ls -l
-       export PATH=$(pwd)/clang-r383902b/bin/:$PATH
+       export PATH=$(pwd)/clang11/clang-r383902b/bin/:$PATH
        export ARCH=arm64
        export SUBARCH=arm64
        make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC=clang
