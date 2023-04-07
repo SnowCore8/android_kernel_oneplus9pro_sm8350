@@ -1,16 +1,9 @@
 name: Build OnePluss-oneplus9pro
 on:
-  workflow_dispatch:
-  schedule:
-      # Run once a week on Sunday at midnight. See http://crontab.guru
-      - cron: '0 21 * * *'
-  push:
-    branches:
-      - HEAD
-  pull_request:
-      branches:
-      - HEAD
-
+ watch:
+    types: [started]
+    
+    workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
