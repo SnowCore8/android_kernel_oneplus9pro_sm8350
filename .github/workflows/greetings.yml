@@ -42,7 +42,7 @@ jobs:
 
     - name: Build Kernel
       run: |
-       ls -l
+       ls -l $(pwd)/clang11/clang-r383902b/bin
        export PATH=$(pwd)/clang11/clang-r383902b/bin/:$PATH
        export ARCH=arm64
        export SUBARCH=arm64
